@@ -21,13 +21,16 @@ public class Main {
                 case "sinh" -> Math.sinh(angulo);
                 case "cosh" -> Math.cosh(angulo);
                 case "tanh" -> Math.tanh(angulo);
-                default -> throw new IllegalArgumentException("Función no reconocida: " + funcion);
+                 
+                default -> Double.NaN;
+            };
 
-
-            }; 
-
-            
-
+            if (Double.isNaN(resultado)) {
+                System.out.println("Función no reconocida.");
+            } else {
+                System.out.printf("El resultado de %s(%.2f°) es %.4f%n", funcion, angulo, resultado);
+            }
         }
     }
 }
+
